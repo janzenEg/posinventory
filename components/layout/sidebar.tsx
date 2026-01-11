@@ -19,7 +19,9 @@ export function Sidebar({ user }: { user: any }) {
   ]
 
   const handleLogout = () => {
-    localStorage.removeItem("pos_user")
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("pos_user")
+    }
     router.push("/signin")
   }
 

@@ -34,6 +34,8 @@ export default function SignUp() {
     setIsLoading(true)
 
     try {
+      if (typeof window === "undefined") return
+      
       const users = JSON.parse(localStorage.getItem("pos_users") || "[]")
 
       // If email exists, just update the user's data

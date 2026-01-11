@@ -21,6 +21,8 @@ export default function SignIn() {
     setIsLoading(true)
 
     try {
+      if (typeof window === "undefined") return
+      
       const users = JSON.parse(localStorage.getItem("pos_users") || "[]")
       let user = users.find((u: any) => u.email === email && u.password === password)
 

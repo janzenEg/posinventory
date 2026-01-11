@@ -11,17 +11,19 @@ export default function SalesPage() {
   const [user, setUser] = useState<any>(null)
 
   useEffect(() => {
-    const userData = localStorage.getItem("pos_user")
-    if (!userData) {
-      router.push("/signin")
-      return
+    if (typeof window !== "undefined") {
+      const userData = localStorage.getItem("pos_user")
+      if (!userData) {
+        router.push("/signin")
+        return
+      }
+      const parsedUser = JSON.parse(userData)
+      if (parsedUser.role === "admin") {
+        router.push("/dashboard")
+        return
+      }
+      setUser(parsedUser)
     }
-    const parsedUser = JSON.parse(userData)
-    if (parsedUser.role === "admin") {
-      router.push("/dashboard")
-      return
-    }
-    setUser(parsedUser)
   }, [router])
 
   if (!user) return null

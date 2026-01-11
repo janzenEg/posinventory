@@ -16,12 +16,14 @@ export default function Dashboard() {
   const [user, setUser] = useState<any>(null)
 
   useEffect(() => {
-    const userData = localStorage.getItem("pos_user")
-    if (!userData) {
-      router.push("/signin")
-      return
+    if (typeof window !== "undefined") {
+      const userData = localStorage.getItem("pos_user")
+      if (!userData) {
+        router.push("/signin")
+        return
+      }
+      setUser(JSON.parse(userData))
     }
-    setUser(JSON.parse(userData))
   }, [router])
 
   if (!user) return null
