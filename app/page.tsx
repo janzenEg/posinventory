@@ -9,15 +9,8 @@ export default function Home() {
 
   useEffect(() => {
     setIsClient(true)
-    // Check if user is logged in
-    if (typeof window !== "undefined") {
-      const user = localStorage.getItem("pos_user")
-      if (user) {
-        router.push("/dashboard")
-      } else {
-        router.push("/signin")
-      }
-    }
+    // Redirect to dashboard
+    router.push("/dashboard")
   }, [router])
 
   if (!isClient) return null

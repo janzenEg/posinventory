@@ -13,11 +13,19 @@ export default function InventoryPage() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const userData = localStorage.getItem("pos_user")
-      if (!userData) {
-        router.push("/signin")
-        return
+      if (userData) {
+        setUser(JSON.parse(userData))
+      } else {
+        // Default user if none exists
+        const defaultUser = {
+          id: "1",
+          name: "Admin",
+          email: "admin@pos.com",
+          role: "admin",
+        }
+        setUser(defaultUser)
+        localStorage.setItem("pos_user", JSON.stringify(defaultUser))
       }
-      setUser(JSON.parse(userData))
     }
   }, [router])
 

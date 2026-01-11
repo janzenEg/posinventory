@@ -22,7 +22,7 @@ export function Sidebar({ user }: { user: any }) {
     if (typeof window !== "undefined") {
       localStorage.removeItem("pos_user")
     }
-    router.push("/signin")
+    router.push("/dashboard")
   }
 
   return (

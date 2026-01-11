@@ -13,11 +13,19 @@ export default function SalesPage() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const userData = localStorage.getItem("pos_user")
-      if (!userData) {
-        router.push("/signin")
-        return
+      let parsedUser
+      if (userData) {
+        parsedUser = JSON.parse(userData)
+      } else {
+        // Default cashier user if none exists
+        parsedUser = {
+          id: "1",
+          name: "Cashier",
+          email: "cashier@pos.com",
+          role: "cashier",
+        }
+        localStorage.setItem("pos_user", JSON.stringify(parsedUser))
       }
-      const parsedUser = JSON.parse(userData)
       if (parsedUser.role === "admin") {
         router.push("/dashboard")
         return
