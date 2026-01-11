@@ -54,11 +54,11 @@ export default function SignIn() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-violet-600 via-purple-600 to-violet-700 flex items-center justify-center p-4">
       <Card className="w-full max-w-md bg-card/95 backdrop-blur">
         <CardHeader className="space-y-2">
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-8 h-8 bg-gradient-to-br from-orange-400 to-purple-500 rounded flex items-center justify-center text-white font-bold">
+            <div className="w-8 h-8 bg-gradient-to-br from-violet-500 to-purple-600 rounded flex items-center justify-center text-white font-bold">
               POS
             </div>
             <span className="font-bold text-lg">POS System</span>
@@ -97,7 +97,7 @@ export default function SignIn() {
             </div>
             <Button
               type="submit"
-              className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
+              className="w-full bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-600 hover:to-purple-700"
               disabled={isLoading}
             >
               {isLoading ? "Signing in..." : "Sign In"}
